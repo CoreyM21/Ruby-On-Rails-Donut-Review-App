@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Donut.create([
+    {name: "Boston Creme", color: "Brown", location: "Bay Shore"},
+    {name: "Strawberry OG", color: "Pink", location: "Mattituck"},
+    {name: "Vanilla OG", color: "White and brown", location: "Bay Shore"}   
+])
