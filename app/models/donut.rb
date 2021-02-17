@@ -1,2 +1,3 @@
 class Donut < ApplicationRecord
+
 end

@@ -1,0 +1,3 @@
+class DonutsController < ApplicationController
+
+end
