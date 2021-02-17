@@ -3,7 +3,7 @@
 <% @donuts.each do |donut| %>
 
 <div>
-    <%= donut.name_and_color %>
+    <%= link_to(donut.name_and_color, donut_path(donut)) %>
 </div>
 
 <% end %>
