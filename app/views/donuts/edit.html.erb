@@ -1,12 +1,3 @@
-<%= form_for @donut do |f| %>
-  <%= f.label 'Donut Name' %><br>
-  <%= f.text_field :name %><br>
- 
-  <%= f.label 'Donut Color' %><br>
-  <%= f.text_area :color %><br>
+<h3>Edit Donut Form</h3>
 
-  <%= f.label 'Donut Location' %><br>
-  <%= f.text_area :location %><br>
- 
-  <%= f.submit "Submit Updated Donut" %>
-<% end %>
+<%= render 'form' %>
