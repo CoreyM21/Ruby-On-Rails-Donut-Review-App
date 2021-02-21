@@ -14,8 +14,8 @@ class DonutsController < ApplicationController
     end
 
     def create
-        @donut= Donut.new(donut_params(:name, :color, :loction))
-            if @donut.save
+        @donut= Donut.new(donut_params)
+        if @donut.save
             redirect_to donut_path(@donut)
         else 
             render :new     
@@ -26,7 +26,7 @@ class DonutsController < ApplicationController
       end
 
       def update
-        if @donut.update(donut_params(:name, :color, :location))
+        if @donut.update(donut_params)
             redirect_to donut_path(@donut)
         else
             render :edit
@@ -35,8 +35,8 @@ class DonutsController < ApplicationController
 
       private
 
-      def donut_params(*args)
-        params.require(:donut).permit(*args)
+      def donut_params
+        params.require(:donut).permit(:name, :color, :location)
       end
 
       def set_donut 
