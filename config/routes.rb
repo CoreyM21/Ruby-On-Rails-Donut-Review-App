@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # get '/donuts', to: 'donuts#index', as: 'donut'
   # get '/donuts/:id' to: 'donuts#show', as: 'donut'
 
-  resources :donuts, only: [:index, :show]
+  resources :donuts, only: [:index, :show, :new, :create]
 
   #show
 end
