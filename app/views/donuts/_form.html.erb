@@ -1,0 +1,15 @@
+<%# <%= render partial: 'layouts/ errors', locals: {object: @donut } %> 
+
+<%= form_for @donut do |f| %>
+
+  <%= f.label 'Donut Name' %><br>
+  <%= f.text_field :name %><br>
+ 
+  <%= f.label 'Donut Color' %><br>
+  <%= f.text_area :color %><br>
+
+  <%= f.label 'Donut Location' %><br>
+  <%= f.text_area :location %><br>
+ 
+  <%= f.submit "Submit Donut" %>
+<% end %>
