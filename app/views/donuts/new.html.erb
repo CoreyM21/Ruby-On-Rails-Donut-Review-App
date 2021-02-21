@@ -1,0 +1,16 @@
+<h3>New Donut Form</h3>
+
+<%= form_tag donuts_path do %>
+
+    <label>Donut Name:</label><br>
+    <%= text_field_tag :'name' %><br>
+
+    <label>Donut's Color:</label><br>
+    <%= text_field_tag :'color' %><br>
+
+    <label>Location Donut Was Bought:</label><br>
+    <%= text_field_tag :'location' %><br>
+
+    <%= submit_tag "Submit Donut" %>
+
+<% end %>
