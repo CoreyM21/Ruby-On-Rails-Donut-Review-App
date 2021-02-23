@@ -11,3 +11,5 @@ Donut.create([
     {name: "Strawberry OG", color: "Pink", location: "Mattituck"},
     {name: "Vanilla OG", color: "White and brown", location: "Bay Shore"}   
 ])
+
+Corey = User.new(username: "Corey", email: "corey@corey.com", password: "corey")
