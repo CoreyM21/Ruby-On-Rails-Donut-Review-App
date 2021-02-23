@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :reviews
+  resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   #index
@@ -6,7 +8,7 @@ Rails.application.routes.draw do
   # get '/donuts', to: 'donuts#index', as: 'donut'
   # get '/donuts/:id' to: 'donuts#show', as: 'donut'
 
-  resources :donuts, only: [:index, :show, :new, :create, :edit, :update]
+  resources :donuts 
 
   #show
 end
