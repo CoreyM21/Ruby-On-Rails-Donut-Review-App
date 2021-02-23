@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
     
-    validates :description, presence: true 
+    # validates :description, presence: true 
 
     before_action :set_review, only: [:show, :update, :edit, :destroy]
 
