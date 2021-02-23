@@ -1,0 +1,10 @@
+<h1>Add a New Review</h1>
+
+<%= render partial: 'layouts/errors', locals: {object: @review} %>
+
+<%= form_with model: @review, local: true do |f| %>
+  <%= f.label :description %>
+  <%= f.text_field :description %><br>
+
+  <br><%= f.submit  %>
+<% end %>
