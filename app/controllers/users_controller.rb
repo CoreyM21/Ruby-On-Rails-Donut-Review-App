@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+    before_action :set_user, only: [:show, :edit, :update]
+    before_action :authorized, except: [:new, :create]
+    before_action :check_if_logged_in, only: [:new]
+
     def show
     end
 
@@ -33,5 +37,19 @@ class UsersController < ApplicationController
     def destroy
         @user.destroy
         redirect_to root_path
+    end
+
+    private
+
+    def set_user
+        @user = current_user
+    end
+
+    def user_params
+        params.require(:user).permit(:username, :password, :email, :password_confirmation)
+    end
+
+    def update_params
+        params.require(:user).permit(:username, :password, :email)
     end
 end
