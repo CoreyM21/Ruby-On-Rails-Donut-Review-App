@@ -33,6 +33,11 @@ class DonutsController < ApplicationController
         end
       end
 
+      def destroy
+        set_donut.destroy
+        redirect_to donuts_path
+      end
+
       private
 
       def donut_params
