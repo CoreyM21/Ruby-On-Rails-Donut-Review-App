@@ -2,23 +2,4 @@
 
 <h2> Your Donuts</h2>
 
-    <% if @user.donuts.empty? %>
-
-        <p>You have not created any donuts! <%= link_to "Click here to create your first donut!", new_donut_path %> </p>
-
-    <% else %>
-
-        <div>
-
-        <% @user.donuts.each do |e| %>
-                
-            
-        <% end %>
-
-        </div>
-
-    <% end %>
-
-    </div>
-
-    <% end %>
+<p>You have not created any donuts! <%= link_to "Click here to create your first donut!", new_donut_path %> </p>
