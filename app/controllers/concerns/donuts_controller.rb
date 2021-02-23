@@ -2,6 +2,8 @@ class DonutsController < ApplicationController
 
     before_action :set_donut, only: [:show, :update, :edit]
 
+
+
     def index
         @donuts = Donut.all 
     end
@@ -14,7 +16,7 @@ class DonutsController < ApplicationController
     end
 
     def create
-        @donut= Donut.new(donut_params)
+        @donut= current_user.donuts.build(donut_params)
         if @donut.save
             redirect_to donut_path(@donut)
         else 
