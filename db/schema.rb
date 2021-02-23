@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_17_024315) do
+ActiveRecord::Schema.define(version: 2021_02_23_020238) do
 
   create_table "donuts", force: :cascade do |t|
     t.string "name"
@@ -20,4 +20,26 @@ ActiveRecord::Schema.define(version: 2021_02_17_024315) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "donut_id", null: false
+    t.integer "user_id", null: false
+    t.index ["donut_id"], name: "index_reviews_on_donut_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
+    t.string "uid"
+    t.string "provider"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "reviews", "donuts"
+  add_foreign_key "reviews", "users"
 end
