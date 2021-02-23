@@ -7,6 +7,12 @@ Rails.application.routes.draw do
   # get '/donuts', to: 'donuts#index', as: 'donut'
   # get '/donuts/:id' to: 'donuts#show', as: 'donut'
 
+  get 'signup' => 'users#new'
+  post 'signup' => 'users#create'
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  get 'logout' => 'sessions#destroy'
+
   resources :donuts 
   resources :reviews
   resources :users
