@@ -2,9 +2,5 @@
 
 <%= render 'form' %>
 
-<%= f.label :review, "Review:"%><br>
-<%= f.fields_for :review do |r| %>
-    <%= r.label :description, "Review:"%>
-    <%= r.text_field :description %>
 
-    <% end %>
+
