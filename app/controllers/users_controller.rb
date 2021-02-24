@@ -15,7 +15,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             session[:user_id] = @user.id
-            # flash[:message] = "Account Created Successfully"
+            flash[:message] = "Account Created Successfully"
             redirect_to user_path(@user)
         else
             @errors = @user.errors

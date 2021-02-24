@@ -2,12 +2,8 @@ Rails.application.routes.draw do
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  #index
-
-  # get '/donuts', to: 'donuts#index', as: 'donut'
-  # get '/donuts/:id' to: 'donuts#show', as: 'donut'
-
-  root 'sessions#welcome'
+  root to: 'sessions#welcome'
+  match 'auth/:provider/callback', to: 'sessions#omniauth', via: [:get, :post] 
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -27,6 +23,4 @@ Rails.application.routes.draw do
 
   
   resources :users
-
-  #show
 end
