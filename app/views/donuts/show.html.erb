@@ -2,4 +2,7 @@
 
 <p>Location: <%= @donut.location %></p>
 
+<h3>Tell Us What You Loved About Donut!</h3><br>
+<%= link_to("I loved.....", new_review_path) %><br><br>
+
 <%= link_to('delete donut', @donut, method: 'delete') %><br>
