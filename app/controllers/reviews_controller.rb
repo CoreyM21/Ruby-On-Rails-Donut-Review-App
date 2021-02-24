@@ -3,38 +3,38 @@ class ReviewsController < ApplicationController
     before_action :set_review, :find_review, only: [:show, :update, :edit, :destroy]
 
     def show
+        
     end
 
-    def new 
-        if params[:donut_id] && @donut = Donut.find_by_id(params[:review_id])
-            @review = @donut.reviews.build
+    def new
+        if params[:donut_id] && @donut = Donut.find_by_id(params[:donut_id])
+          @review = @donut.reviews.build
         else
-            @review = Review.new
-            @review.build_donut
+          redirect_to root_path
         end
-    end
+      end   
 
     def index
         @reviews = Review.all 
     end
 
-    def create 
-            @review = current_user.reviews.build(review_params)
-            byebug
-        if @review.save 
-            redirect_to review_path(@review)
-        else 
-            @donut = Donut.find_by_id(params[:donut_id]) if params[:donut_id] != ""
-            render :new 
+    def create
+        @donut = Donut.find_by_id(params[:donut_id])
+        @review = @donut.reviews.build(review_params)
+        @review.user = current_user
+        if @review.save
+          redirect_to review_path(@review)
+        else
+          render :new
         end
-    end
+      end
 
     def edit 
     end
 
     def update
         @review.update(review_params)
-        redirect_to review_path(review)
+        redirect_to review_path(@review)
     end
 
     def destroy 
@@ -49,10 +49,10 @@ class ReviewsController < ApplicationController
     end
 
     def set_review
-        @review = Review.find_by(id: params[:id])
+        @review = Review.find_by_id(params[:id])
     end
 
-    def find_donut 
+    def find_review 
         @review = Review.find(params[:id])
     end
 

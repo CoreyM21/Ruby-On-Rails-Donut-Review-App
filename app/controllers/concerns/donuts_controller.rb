@@ -14,7 +14,9 @@ class DonutsController < ApplicationController
     end
 
     def create
-        @donut= current_user.donuts.build(donut_params)
+        @review = Donut.find_by_id(params[:donut_id])
+        @donut = @review.donuts.build(donut_params)
+        @donut.user = current_user
         if @donut.save
             redirect_to donut_path(@donut)
         else 
@@ -41,11 +43,11 @@ class DonutsController < ApplicationController
       private
 
       def donut_params
-        params.require(:donut).permit(:name, :color, :location)
+        params.require(:donut).permit(:name, :color, :location, reviews_attributes: [:description])
       end
 
       def set_donut 
-        @donut = Donut.find(params[:id])
+        @donut = Donut.find_by_id(params[:id])
       end
 
 end
