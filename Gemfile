@@ -28,10 +28,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt'
 
 gem 'omniauth'
-
+gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-google-oauth2'
-
-gem 'dotenv'
+gem 'dotenv-rails'
+gem 'omniauth-github'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
