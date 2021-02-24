@@ -1,8 +1,10 @@
 <h1>Review Show Page</h1>
 
 <br><br>
-<h3><%= @review.donut.name %></h3>
-<h3><%= @review.description %></h3>
+<h2><%= @review.donut.name %></h2>
+
+<h3> was </h3>
+<p><%= @review.description %></p>
 
 
 <br><% if @review.user == current_user %><br>

@@ -1,8 +1,16 @@
 <h1> <%= @donut.name %> </h1>
 
-<p>Location: <%= @donut.location %></p>
+<p>Color: <%= @donut.color %></p>
 
-<h3>Tell Us What You Loved About Donut!</h3><br>
-<%= link_to("I loved.....", new_donut_review_path(@donut)) %><br><br>
+<p>Location Purchased: <%= @donut.location %></p>
 
-<%= link_to('delete donut', @donut, method: 'delete') %><br>
+<h3>Tell Us What You Loved About <%= @donut.name %>!</h3><br>
+
+<p> Review This Donut! <%= link_to("What I Loved About This Donut.....", new_donut_review_path(@donut)) %></p>
+
+<br><% if @donut.users == current_user %><br>
+<p> Oops! Gotta Fix Something <%= link_to("edit donut", edit_donut_path(@donut)) %></p>
+
+<p> Let Me Start Over <%= link_to('delete donut', @donut, method: 'delete') %></p>
+
+<% end %>
