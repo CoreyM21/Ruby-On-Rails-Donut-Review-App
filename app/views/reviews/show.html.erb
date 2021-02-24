@@ -1,0 +1,11 @@
+<h1>Review Show Page</h1>
+
+<br><br>
+<h3><%= @review.donut.name %></h3>
+<h3><%= @review.description %></h3>
+
+
+<br><% if @review.user == current_user %><br>
+<%= link_to('edit review', edit_review_path(@review)) %><br>
+<%= link_to('delete review', review_path(@review), method: 'delete') %><br>
+<% end %>
