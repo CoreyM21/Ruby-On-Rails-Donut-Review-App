@@ -8,7 +8,12 @@ class ReviewsController < ApplicationController
     end
 
     def new 
-        @review = Review.new 
+        if params[:donut_id] && @donut = Donut.find_by_id(params[:review_id])
+            @review = @donut.reviews.build
+        else
+            @review = Review.new
+            @review.build_donut
+        end
     end
 
     def index
@@ -16,10 +21,11 @@ class ReviewsController < ApplicationController
     end
 
     def create 
-        @review = Review.new(review_params)
+            @review = current_user.reviews.build(review_params)
         if @review.save 
             redirect_to review_path(@review)
         else 
+            @donut = Donut.find_by_id(params[:donut_id]) if params[:donut_id] != ""
             render :new 
         end
     end
