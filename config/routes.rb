@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   # get '/donuts', to: 'donuts#index', as: 'donut'
   # get '/donuts/:id' to: 'donuts#show', as: 'donut'
 
+  root 'sessions#welcome'
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/welcome', to: 'sessions#welcome'
