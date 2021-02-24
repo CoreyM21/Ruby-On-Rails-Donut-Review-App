@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Donut.create([
-    {name: "Boston Creme", color: "Brown", location: "Bay Shore"},
-    {name: "Strawberry OG", color: "Pink", location: "Mattituck"},
-    {name: "Vanilla OG", color: "White and brown", location: "Bay Shore"}   
+    {name: "Boston Creme", color: "Brown", location: "Bay Shore", user_id: 1},
+    {name: "Strawberry OG", color: "Pink", location: "Mattituck", user_id: 1},
+    {name: "Vanilla OG", color: "White and brown", location: "Bay Shore", user_id: 1}   
 ])
 
 # Corey = User.new(username: "Corey", email: "corey@corey.com", password: "corey")

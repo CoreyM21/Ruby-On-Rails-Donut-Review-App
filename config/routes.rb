@@ -19,12 +19,13 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   get '/users/:id', to: 'users#show', as: 'user'
 
-  resources :donuts
-
-  resources :reviews do 
-    resources :donuts, shallow: true
+  resources :donuts do 
+    resources :reviews 
   end
 
+  resources :reviews 
+
+  
   resources :users
 
   #show
