@@ -5,11 +5,11 @@
 
   <h3>Now Tell Us What You Loved About It!</h3>
    
-  <%= form_with model: @review, local: true do |r| %>
+  <%= form_for([@donut, @review]) do |r| %>
   <br>
 
   <%= r.label :description %>
-  <%= r.text_field :description %><br>
+  <%= r.text_field :description %><br><br>
 
   <%= r.submit %>
 
