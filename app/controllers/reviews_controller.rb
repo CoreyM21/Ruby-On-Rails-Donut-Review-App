@@ -1,8 +1,6 @@
-class ReviewsController < ApplicationController
-    
-    # validates :description, presence: true 
+class ReviewsController < ApplicationController 
 
-    before_action :set_review, only: [:show, :update, :edit, :destroy]
+    before_action :set_review, :find_review, only: [:show, :update, :edit, :destroy]
 
     def show
     end
@@ -22,6 +20,7 @@ class ReviewsController < ApplicationController
 
     def create 
             @review = current_user.reviews.build(review_params)
+            byebug
         if @review.save 
             redirect_to review_path(@review)
         else 
@@ -46,14 +45,16 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.require(:review).permit(:description, donuts_attributes: [:name, :color, :location])
+        params.require(:review).permit(:donut_id, :description, donuts_attributes: [:name, :color, :location])
     end
 
     def set_review
         @review = Review.find_by(id: params[:id])
     end
 
-
+    def find_donut 
+        @review = Review.find(params[:id])
+    end
 
     
 end
