@@ -8,7 +8,6 @@
 
 <p> Review This Donut! <%= link_to("What I Loved About This Donut.....", new_donut_review_path(@donut)) %></p>
 
-<% byebug %>
 <br><% if @donut.user == current_user %><br>
 <p> Oops! Gotta Fix Something <%= link_to("edit donut", edit_donut_path(@donut)) %></p>
 
@@ -16,4 +15,22 @@
 
 <% end %>
 
-#what people said
+<h4>What People Have Said About This Donut!</h4>
+
+    <% if @donut.reviews.empty? %>
+
+        <p>No one has reviewed <%= @donut.name %>! Be the first! <%= link_to("Now let me tell you....", new_donut_review_path(@donut)) %></p>
+
+    <% else %>
+
+        <% @donut.reviews.each do |e| %>
+
+        <div>        
+            <%= "#{e.user.username} said '#{e.description}'" %>
+        <div>    
+            
+        <% end %>
+
+        </div>
+
+    <% end %>
