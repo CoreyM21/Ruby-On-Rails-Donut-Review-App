@@ -8,9 +8,12 @@
 
 <p> Review This Donut! <%= link_to("What I Loved About This Donut.....", new_donut_review_path(@donut)) %></p>
 
-<br><% if @donut.users == current_user %><br>
+<% byebug %>
+<br><% if @donut.user == current_user %><br>
 <p> Oops! Gotta Fix Something <%= link_to("edit donut", edit_donut_path(@donut)) %></p>
 
 <p> Let Me Start Over <%= link_to('delete donut', @donut, method: 'delete') %></p>
 
 <% end %>
+
+#what people said

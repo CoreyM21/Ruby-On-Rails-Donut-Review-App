@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
     end
   
     def create
+        
       u = User.find_by_email(params[:email])
       if u && u.authenticate(params[:password])
           session[:user_id] = u.id
@@ -28,12 +29,14 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
+        
       if params[:provider]== "github"
           user = User.create_from_omniauth_github(auth)
       elsif params[:provider] == "google_oauth2"
           user = User.create_from_omniauth(auth)
       end 
       
+      byebug
       if user.save
           session[:user_id] = user.id
           redirect_to user_path(user)
