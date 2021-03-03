@@ -33,8 +33,11 @@ class ReviewsController < ApplicationController
     end
 
     def update
-        @review.update(review_params)
-        redirect_to review_path(@review)
+        if @review.update(review_params)
+          redirect_to review_path(@review)
+        else 
+          render :edit 
+        end
     end
 
     def destroy 
