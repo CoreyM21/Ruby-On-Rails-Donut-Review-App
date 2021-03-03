@@ -1,6 +1,6 @@
 Ruby On Rails Donut Review App - A donut reviewing app that allows users to log in, sign up, and create donuts and reviews for those donuts. Users can also edit and delete their own donuts and reviews as well as see what donuts other users made and review them as well.
 
-Getting Started - To run this app, clone the repo and run bundle install. The run rils s to fire up a server. You should see the app running on http://127.0.0.1:3000/welcome.
+Getting Started - To run this app, clone the repo and run bundle install. Then run 'rails s' in console to fire up a server. You should see the app running on http://127.0.0.1:3000/welcome.
 
 Prerequisites - You will need to have Ruby installed on your machine - Linux or Mac.
 
@@ -12,7 +12,7 @@ Contributing - Feel free to contribute! Please fork, clone, and submit a PR if y
 
 Versioning Version 1
 
-Authors © 2020 by CoreyM21
+Authors © 2021 by CoreyM21
 
 License This project is licensed under the MIT License:
 
