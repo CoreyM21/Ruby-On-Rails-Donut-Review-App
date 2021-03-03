@@ -3,8 +3,7 @@
 <br><br>
 <h2><%= @review.donut.name %></h2>
 
-<h3> was </h3>
-<p><%= @review.description %></p>
+<h3>You just said '<%= @review.description %>'</h3>
 
 
 <br><% if @review.user == current_user %><br>
