@@ -8,6 +8,7 @@ class DonutsController < ApplicationController
     end
 
     def show
+      
     end
 
     def new
