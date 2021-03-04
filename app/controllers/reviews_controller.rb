@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     end
 
     def new
-        if params[:donut_id] && @donut = Donut.find_by_id(params[:donut_id])
+        if correct_donut
           @review = @donut.reviews.build
         else
           redirect_to root_path
@@ -15,18 +15,16 @@ class ReviewsController < ApplicationController
       end   
 
     def index 
-          if params[:donut_id] && @donut = Donut.find_by_id(params[:donut_id])
+          if correct_donut
             @reviews = @donut.reviews 
           else
             @reviews = current_user.reviews 
           end        
     end
 
-    def create
-      
+    def create      
         @donut = Donut.find_by_id(params[:donut_id])
-        @review = @donut.reviews.build(review_params)
-        
+        @review = @donut.reviews.build(review_params)        
         @review.user = current_user
         if @review.save
           redirect_to review_path(@review)
@@ -59,6 +57,10 @@ class ReviewsController < ApplicationController
 
     def set_review
         @review = Review.find_by_id(params[:id])
+    end
+
+    def correct_donut
+      params[:donut_id] && @donut = Donut.find_by_id(params[:donut_id])
     end
 
 
