@@ -1,4 +1,4 @@
-<h1>All Reviews For "<%= @donut.name %>" </h1><br>
+<h1>All Reviews For "<%= link_to(@donut.name, donut_path(@donut)) %>" </h1><br>
 
 <% if @reviews.empty? %>
 
@@ -7,11 +7,11 @@
     <% else %>
 
         
-
-        <% @reviews.each do |review| %>
+        <% byebug %>
+        <% @donut.reviews.each do |donut| %>
 
         <div>
-        <h4><%= review.description %></h4> 
+        <h4><%= "#{donut.user.username} said #{donut.description}" %></h4> 
         <div>    
             
         <% end %>
