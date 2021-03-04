@@ -4,15 +4,15 @@
 
 <h2> Time To Make The Donuts!</h2>
 
-<p>All the Donuts Already Created! YUMMMM! <%= link_to "Click here to see the donuts!", donuts_path %> </p>
+<p>All the Donuts Already Created! YUMMMM! -> <%= link_to "Click here to see the donuts!", donuts_path %> </p>
 
-<p>I wanna talk about my great experience! <%= link_to "Click here to create a new donut to review!", new_donut_path %> </p>
+<p>I wanna talk about my great experience! -> <%= link_to "Click here to create a new donut to review!", new_donut_path %> </p>
 
 <h2> Your Donuts</h2>
 
     <% if @user.donuts.empty? %>
 
-        <p>You have not created any donuts yourself! <%= link_to "Click here to create your first donut!", new_donut_path %> </p>
+        <p>You have not created any donuts yourself! -> <%= link_to "Click here to create your first donut!", new_donut_path %> </p>
 
     <% else %>
 
@@ -32,7 +32,7 @@
 
     <% if @user.reviews.empty? %>
 
-        <p>You have not created any reviews yourself! <%= link_to "Click here to see the all the donuts made and review!", donuts_path %> </p>
+        <p>You have not created any reviews yourself! -> <%= link_to "Click here to see the all the donuts made and review!", donuts_path %> </p>
 
     <% else %>
 
