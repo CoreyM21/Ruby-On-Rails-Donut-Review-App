@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController 
 
-    before_action :set_review, only: [:show, :update, :edit, :destroy]
+    before_action :set_review, only: [:index, :show, :update, :edit, :destroy]
 
     def show
         
@@ -14,8 +14,12 @@ class ReviewsController < ApplicationController
         end
       end   
 
-    def index
-        @reviews = Review.all 
+    def index 
+          if params[:donut_id] && @donut = Donut.find_by_id(params[:donut_id])
+            @reviews = @donut.reviews 
+          else
+            @reviews = current_user.reviews 
+          end        
     end
 
     def create
@@ -57,7 +61,6 @@ class ReviewsController < ApplicationController
         @review = Review.find_by_id(params[:id])
     end
 
-    
 
     
 end
