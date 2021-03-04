@@ -10,10 +10,11 @@ class Donut < ApplicationRecord
     validates :location, presence: true 
 
     scope :order_by_name, -> { reorder("lower(name) ASC") }
+   
 
     
     def name_and_color
-        "Name: #{self.name} - Color: #{self.color}"
+        "#{self.name} - Color: #{self.color}"
     end
 
 end
