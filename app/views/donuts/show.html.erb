@@ -4,6 +4,8 @@
 
 <p>Location Purchased: <%= @donut.location %></p>
 
+__________________________________________________
+
 <h3>Tell Us What You Loved About <%= @donut.name %>!</h3><br>
 
 <p> Review This Donut! <%= link_to("What I Loved About This Donut.....", new_donut_review_path(@donut)) %></p>
@@ -14,6 +16,8 @@
 <p> Let Me Start Over <%= link_to('delete donut', @donut, method: 'delete') %></p>
 
 <% end %>
+
+__________________________________________________________________
 
 <h4>What People Have Said About This Donut!</h4>
 
@@ -34,3 +38,7 @@
         </div>
 
     <% end %>
+
+    
+
+    <br><%= link_to("All Reviews Made For This Donut", donut_reviews_path(@donut))%>
