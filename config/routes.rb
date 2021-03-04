@@ -16,10 +16,10 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
 
   resources :donuts do 
-    resources :reviews 
+    resources :reviews, only: [:new, :edit]
   end
 
-  resources :reviews 
+  resources :reviews, except: [:index, :new]
 
   
   resources :users

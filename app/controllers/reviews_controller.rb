@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController 
 
-    before_action :set_review, :find_review, only: [:show, :update, :edit, :destroy]
+    before_action :set_review, only: [:show, :update, :edit, :destroy]
 
     def show
         
@@ -19,8 +19,10 @@ class ReviewsController < ApplicationController
     end
 
     def create
+      
         @donut = Donut.find_by_id(params[:donut_id])
         @review = @donut.reviews.build(review_params)
+        
         @review.user = current_user
         if @review.save
           redirect_to review_path(@review)
@@ -55,9 +57,7 @@ class ReviewsController < ApplicationController
         @review = Review.find_by_id(params[:id])
     end
 
-    def find_review 
-        @review = Review.find(params[:id])
-    end
+    
 
     
 end
