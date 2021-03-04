@@ -1,0 +1,23 @@
+<h1>All Reviews For "<%= @donut.name %>" </h1><br>
+
+<% if @reviews.empty? %>
+
+        <p>No one has reviewed <%= @donut.name %>! Be the first!
+
+    <% else %>
+
+        
+
+        <% @reviews.each do |review| %>
+
+        <div>
+        <h4><%= review.description %></h4> 
+        <div>    
+            
+        <% end %>
+
+        </div>
+
+    <% end %>
+
+    <%= link_to("Review This Donut", new_donut_review_path(@donut)) %></p>
