@@ -6,6 +6,7 @@
         <%= link_to(@donut.name, donut_path(@donut)) %>" </h1><br>
     <% end %>
 
+
     <% if @donut %>
         <% if @donut.reviews.empty? %>
 
@@ -34,7 +35,7 @@
             
             <% @user.reviews.each do |r| %>
                 <div>    
-                    <%= "About #{r.donut.name} you said " %><%= link_to(r.description, review_path(r))%>
+                    <%= "About '#{r.donut.name}' you said " %><%= link_to(r.description, review_path(r))%>
                 <div>            
             <% end %>
         
