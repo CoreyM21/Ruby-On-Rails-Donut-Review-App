@@ -17,8 +17,9 @@ class ReviewsController < ApplicationController
     def index 
           if correct_donut
             @reviews = @donut.reviews 
+          elsif params[:user_id] && @user = User.find_by_id(params[:user_id])
           else
-            @reviews = current_user.reviews 
+            @reviews = current_user.reviews          
           end        
     end
 
