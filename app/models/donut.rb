@@ -9,7 +9,7 @@ class Donut < ApplicationRecord
     validates :color, presence: true 
     validates :location, presence: true 
 
-    scope :order_by_name, -> { reorder("lower(name) ASC") }
+    scope :order_by_name, -> { order("name") }
    
 
     
